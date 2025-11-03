@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ShopVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #577399;
+            --secondary: #BDD5EA;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --danger: #dc3545;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary: #4a6480;
+            --secondary: #a8c5e0;
+            --light: #121212;
+            --dark: #f8f9fa;
+            --gray: #a0a0a0;
+            --light-gray: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons button {
+            background: transparent;
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            padding: 5px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-icons button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(87, 115, 153, 0.9), rgba(87, 115, 153, 0.9)), url('https://images.unsplash.com/photo-1563013546-73eda71c6e7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .dark-mode .info-card {
+            background-color: var(--light-gray);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h3 i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-list li i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 20px;
+            margin-top: 3px;
+        }
+
+        .contact-detail h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p {
+            color: var(--gray);
+        }
+
+        /* Hours List */
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list .day {
+            font-weight: 600;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .dark-mode .contact-form-container {
+            background-color: var(--light-gray);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .dark-mode .form-control {
+            background-color: #2a2a2a;
+            border-color: #3a3a3a;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(87, 115, 153, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #4a6480;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--secondary);
+        }
+
+        .faq-section .section-title h2 {
+            color: var(--dark);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .dark-mode .faq-item {
+            background-color: var(--light-gray);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(87, 115, 153, 0.05);
+        }
+
+        .dark-mode .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+        }
+
+        .map-container {
+            height: 500px;
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            z-index: 3000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .toast.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-container {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    ShopVerse
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <button id="theme-toggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="account-btn" title="My Account">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help! Get in touch with our team for any questions or concerns</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> Get In Touch</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-detail">
+                                    <h4>Our Address</h4>
+                                    <p>123 Commerce Street, Suite 500<br>San Francisco, CA 94105</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-detail">
+                                    <h4>Phone Number</h4>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-detail">
+                                    <h4>Email Address</h4>
+                                    <p>support@shopverse.com</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div class="contact-detail">
+                                    <h4>Working Hours</h4>
+                                    <p>Monday - Friday: 9:00 AM - 9:00 PM<br>Weekends: 10:00 AM - 6:00 PM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-store"></i> Store Hours</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday - Friday</span>
+                                <span>9:00 AM - 9:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span>10:00 AM - 8:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span>11:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Holidays</span>
+                                <span>Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-headset"></i> Customer Support</h3>
+                        <p>Our customer support team is available to assist you with any questions about products, orders, shipping, or returns. We typically respond within 2 hours during business hours.</p>
+                        <p>For order-related inquiries, please have your order number ready to help us serve you faster.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <p class="form-subtitle">Fill out the form below and we'll get back to you as soon as possible</p>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name" class="form-label">First Name</label>
+                                <input type="text" id="first-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name" class="form-label">Last Name</label>
+                                <input type="text" id="last-name" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="order">Order Issue</option>
+                                <option value="shipping">Shipping & Delivery</option>
+                                <option value="return">Returns & Refunds</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does shipping take?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard shipping typically takes 3-5 business days. Express shipping (1-2 business days) and next-day delivery options are also available. Shipping times may vary during holidays or promotional periods.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your return policy?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return policy for most items in original condition with tags attached. Some items like electronics have a 14-day return window. Final sale items are not eligible for return. Please contact our support team to initiate a return.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you ship internationally?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we ship to over 50 countries worldwide. International shipping times vary by destination but typically range from 7-14 business days. Additional customs fees or import taxes may apply depending on your country's regulations.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I track my order?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your order ships, you'll receive a confirmation email with a tracking number and link. You can also track your order by logging into your account on our website and visiting the "Order History" section.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, Google Pay, and ShopVerse gift cards. All payments are processed securely through encrypted connections.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.434440571257!2d-122.39943592408656!3d37.78538217191738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807d10af6e51%3A0x1122879b36b2c8a3!2s123%20Commerce%20St%2C%20San%20Francisco%2C%20CA%2094105%2C%20USA!5e0!3m2!1sen!2s!4v1690838409875!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ShopVerse</h3>
+                    <p>Your ultimate shopping destination for quality products at affordable prices. We're committed to providing excellent customer service and a seamless shopping experience.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Product Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Commerce St, San Francisco, CA 94105</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> support@shopverse.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-9PM, Weekends: 10AM-6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ShopVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Global variables
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // DOM Elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const cartCount = document.querySelector('.cart-count');
+        const contactForm = document.getElementById('contact-form');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            setupEventListeners();
+            
+            // Check for saved theme
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+
+        // Set up event listeners
+        function setupEventListeners() {
+            themeToggle.addEventListener('click', toggleTheme);
+            contactForm.addEventListener('submit', handleFormSubmit);
+            
+            // FAQ accordion functionality
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Toggle dark/light mode
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', null);
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        // Update cart count in navbar
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.add('active');
+            
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 4000);
+        }
+
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Validate form
+            if (!validateForm(formData)) {
+                return;
+            }
+            
+            // Simulate form submission (in a real app, this would be an API call)
+            simulateFormSubmission(formData);
+        }
+
+        // Validate form data
+        function validateForm(data) {
+            // Check required fields
+            if (!data.firstName.trim()) {
+                showToast('Please enter your first name');
+                document.getElementById('first-name').focus();
+                return false;
+            }
+            
+            if (!data.lastName.trim()) {
+                showToast('Please enter your last name');
+                document.getElementById('last-name').focus();
+                return false;
+            }
+            
+            if (!data.email.trim()) {
+                showToast('Please enter your email address');
+                document.getElementById('email').focus();
+                return false;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showToast('Please enter a valid email address');
+                document.getElementById('email').focus();
+                return false;
+            }
+            
+            if (!data.subject) {
+                showToast('Please select a subject');
+                document.getElementById('subject').focus();
+                return false;
+            }
+            
+            if (!data.message.trim()) {
+                showToast('Please enter your message');
+                document.getElementById('message').focus();
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Simulate form submission with loading state
+        function simulateFormSubmission(formData) {
+            // Show loading state on button
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Show success message
+                showToast('Your message has been sent successfully! We\'ll get back to you within 24 hours.');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // In a real application, you would send the data to your server here
+                console.log('Form submitted:', formData);
+                
+                // Example of using a service like EmailJS would go here:
+                // emailjs.send('service_id', 'template_id', formData)
+                //   .then(() => showToast('Message sent successfully!'))
+                //   .catch(error => showToast('Failed to send message. Please try again.'));
+                
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
