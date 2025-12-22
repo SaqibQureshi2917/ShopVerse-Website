@@ -169,14 +169,14 @@
         justify-content: center;
       }
 
-      #mobile-menu {
+      .mobile-menu {
         display: none;
         font-size: 1.5rem;
         background: transparent;
         color: white;
       }
 
-      /* Mobile Navigation */
+      /* Mobile Navigation - Dropdown Style */
       .mobile-nav {
         display: none;
         position: absolute;
@@ -184,8 +184,21 @@
         left: 0;
         width: 100%;
         background-color: var(--primary);
-        box-shadow: var(--shadow);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         z-index: 999;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .mobile-nav.active {
@@ -203,17 +216,20 @@
 
       .mobile-nav-links a {
         display: block;
-        padding: 10px 0;
+        padding: 12px 15px;
         font-weight: 500;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        transition: var(--transition);
       }
 
-      .mobile-nav-links a:last-child {
-        border-bottom: none;
-      }
-
-      .mobile-nav-links a:hover {
+      .mobile-nav-links a:hover,
+      .mobile-nav-links a.active {
+        background-color: rgba(255, 255, 255, 0.1);
         color: var(--secondary);
+      }
+
+      .dark-mode .mobile-nav {
+        background-color: #2a2a2a;
       }
 
       /* Hero Section */
@@ -595,6 +611,11 @@
         .nav-links {
           display: none;
         }
+
+        .mobile-menu {
+          display: block;
+        }
+
         .hero h1 {
           font-size: 2.5rem;
         }
@@ -634,7 +655,7 @@
           </a>
 
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -656,10 +677,10 @@
             </button>
           </div>
 
-          <!-- Mobile Navigation -->
+          <!-- Mobile Navigation Dropdown -->
           <div class="mobile-nav" id="mobile-nav">
             <ul class="mobile-nav-links">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html" class="active">Home</a></li>
               <li><a href="products.html">Products</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -669,35 +690,93 @@
       </div>
     </header>
 
-    <!-- Main Content (will be replaced by page-specific content) -->
-    <main id="main-content">
-      <!-- Home Page Content -->
-      <section class="hero">
-        <div class="container">
-          <div class="hero-content">
-            <h1>Welcome to ShopVerse</h1>
-            <p>
-              Discover the latest trends in fashion, electronics, home goods and
-              more. Quality products at unbeatable prices.
-            </p>
-            <a href="products.html" class="btn btn-primary">Shop Now</a>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to ShopVerse</h1>
+          <p>
+            Discover the latest trends in fashion, electronics, home goods and
+            more. Quality products at unbeatable prices.
+          </p>
+          <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+          <p>Check out our handpicked selection of premium products</p>
+        </div>
+
+        <div class="products-grid" id="featured-products">
+          <!-- Featured products will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section style="background-color: var(--secondary);">
+      <div class="container">
+        <div class="section-title">
+          <h2>Shop by Category</h2>
+          <p>Browse products by your favorite categories</p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                 alt="Electronics" class="product-img">
+            <div class="product-info">
+              <h3 class="product-title">Electronics</h3>
+              <p class="product-description">Latest gadgets, smartphones, laptops and more</p>
+              <a href="products.html?category=electronics" class="btn" style="display: block; text-align: center; margin-top: 10px;">
+                Shop Now
+              </a>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80" 
+                 alt="Fashion" class="product-img">
+            <div class="product-info">
+              <h3 class="product-title">Fashion</h3>
+              <p class="product-description">Trendy clothing, shoes and accessories</p>
+              <a href="products.html?category=clothing" class="btn" style="display: block; text-align: center; margin-top: 10px;">
+                Shop Now
+              </a>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                 alt="Home & Living" class="product-img">
+            <div class="product-info">
+              <h3 class="product-title">Home & Living</h3>
+              <p class="product-description">Furniture, decor and home essentials</p>
+              <a href="products.html?category=home" class="btn" style="display: block; text-align: center; margin-top: 10px;">
+                Shop Now
+              </a>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                 alt="Sports" class="product-img">
+            <div class="product-info">
+              <h3 class="product-title">Sports & Fitness</h3>
+              <p class="product-description">Equipment and gear for your active lifestyle</p>
+              <a href="products.html?category=sports" class="btn" style="display: block; text-align: center; margin-top: 10px;">
+                Shop Now
+              </a>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section>
-        <div class="container">
-          <div class="section-title">
-            <h2>Featured Products</h2>
-            <p>Check out our handpicked selection of premium products</p>
-          </div>
-
-          <div class="products-grid" id="featured-products">
-            <!-- Featured products will be loaded here -->
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -790,12 +869,11 @@
     <script>
       // Global variables
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      let currentPage = "home"; // This would be set based on the actual page
 
       // DOM Elements
       const themeToggle = document.getElementById("theme-toggle");
       const cartCount = document.querySelector(".cart-count");
-      const mainContent = document.getElementById("main-content");
+      const featuredProductsContainer = document.getElementById("featured-products");
       const productModal = document.getElementById("product-modal");
       const modalBody = document.getElementById("modal-body");
       const closeModal = document.querySelector(".close-modal");
@@ -826,6 +904,9 @@
             !mobileMenuToggle.contains(e.target)
           ) {
             mobileNav.classList.remove("active");
+            const menuIcon = mobileMenuToggle.querySelector("i");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
           }
         });
 
@@ -843,7 +924,7 @@
         }
       });
 
-      // Toggle mobile menu
+      // Toggle mobile menu (same as products page)
       function toggleMobileMenu() {
         mobileNav.classList.toggle("active");
 
@@ -870,6 +951,7 @@
           themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
       }
+
       // Update cart count in navbar
       function updateCartCount() {
         const totalItems = cart.reduce(
@@ -926,9 +1008,6 @@
 
       // Load featured products (mock data for demo)
       function loadFeaturedProducts() {
-        const featuredProductsContainer =
-          document.getElementById("featured-products");
-
         // Mock product data (in a real app, this would come from an API)
         const featuredProducts = [
           {
