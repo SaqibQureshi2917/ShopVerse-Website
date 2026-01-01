@@ -794,6 +794,10 @@
       .modal-body {
         padding: 20px;
       }
+      .modal-body button {
+        height:45px;
+        border-radius:5px;
+      }
 
       .modal-product {
         display: grid;
@@ -998,7 +1002,7 @@
               </div>
             </div>
 
-            <div class="filter-group">
+            <!-- <div class="filter-group">
               <h3 class="filter-title">Customer Ratings</h3>
               <div class="rating-stars">
                 <div class="rating-item">
@@ -1056,7 +1060,7 @@
                   </label>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="filter-group">
               <h3 class="filter-title">Availability</h3>
@@ -1189,10 +1193,9 @@
             <h3>Contact Info</h3>
             <ul class="footer-links">
               <li>
-                <i class="fas fa-map-marker-alt"></i> 123 Commerce St, City,
-                State 12345
+                <i class="fas fa-map-marker-alt"></i> 123 Street, Peshawar , Pakistan
               </li>
-              <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+              <li><i class="fas fa-phone"></i> +92 3300033003</li>
               <li><i class="fas fa-envelope"></i> support@shopverse.com</li>
               <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
             </ul>
@@ -1230,7 +1233,7 @@
       let products = [];
       let filteredProducts = [];
       let currentPage = 1;
-      const productsPerPage = 12;
+      const productsPerPage = 11;
       let currentView = "grid";
 
       // DOM Elements
